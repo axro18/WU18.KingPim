@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WU18.KingPim.Common\WU18.KingPim.Common.csproj" />
     <ProjectReference Include="..\WU18.KingPim.Data\WU18.KingPim.Data.csproj" />
   </ItemGroup>
 
