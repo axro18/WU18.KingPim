@@ -1,7 +1,11 @@
-﻿
+﻿@model IEnumerable<WU18.KingPim.Data.Models.Product>
 @{
     ViewData["Title"] = "List";
 }
 
 <h1>List</h1>
 
+@foreach (var p in Model)
+{
+    <p>@p.Name</p>
+}

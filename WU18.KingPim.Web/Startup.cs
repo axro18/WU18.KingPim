@@ -19,6 +19,7 @@ namespace WU18.KingPim.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddMvc();
 
@@ -26,13 +27,17 @@ namespace WU18.KingPim.Web
                 options.UseSqlServer(Configuration.GetConnectionString("WU18.KingPimConnection")));
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, KingPimContext ctx)
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
+            Seeder.FillDbIfEmpty(ctx);
+
         }
+
+        
     }
 }

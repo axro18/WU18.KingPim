@@ -22,5 +22,6 @@ namespace WU18.KingPim.Data.Models
         public DateTime? StartCampaign { get; set; }
         public DateTime? EndCampaign { get; set; }
         public decimal PriceExVat { get; set; }
+        public int? SubCategoryId { get; set; }
     }
 }

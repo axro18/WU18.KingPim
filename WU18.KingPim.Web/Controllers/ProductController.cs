@@ -5,7 +5,7 @@ namespace WU18.KingPim.Web.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly IProductRepository repo;
+        private IProductRepository repo;
 
         public ProductController(IProductRepository productRepository)
         {

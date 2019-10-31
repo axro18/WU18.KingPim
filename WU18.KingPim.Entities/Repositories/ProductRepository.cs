@@ -12,8 +12,9 @@ namespace WU18.KingPim.Entities.Repositories
 
         public ProductRepository(KingPimContext context)
         {
-            ctx = context;
+            this.ctx = context;
         }
-        public IEnumerable<Product> Products { get; }
+
+        public IEnumerable<Product> Products => ctx.Products;
     }
 }
