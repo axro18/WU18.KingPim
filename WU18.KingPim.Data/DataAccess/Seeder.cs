@@ -16,7 +16,6 @@ namespace WU18.KingPim.Data.DataAccess
                 ctx.SubCategories.Add(new SubCategory
                 {
                     Name = "Nvidia"
-                    
                 });
                 ctx.SaveChanges();
             }

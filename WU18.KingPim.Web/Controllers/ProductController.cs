@@ -1,20 +1,26 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
+using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using WU18.KingPim.Data.Models;
 using WU18.KingPim.Entities.Repositories;
+using WU18.KingPim.Entities.ViewModels;
 
 namespace WU18.KingPim.Web.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly IProductRepository repo;
-
-        public ProductController(IProductRepository productRepository)
+        private readonly IProductRepository _repo;
+        private readonly IMapper _mapper;
+        public ProductController(IProductRepository productRepository, IMapper mapper)
         {
-            repo = productRepository;
+            _repo = productRepository;
+            _mapper = mapper;
         }
 
         public IActionResult List()
         {
-            return View(repo.Products);
+            var data = _repo.Products.Select(x => _mapper.Map<Product, ProductViewModel>(x));
+            return View(data);
         }
 
         public IActionResult Index()
