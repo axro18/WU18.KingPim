@@ -15,7 +15,8 @@ namespace WU18.KingPim.Data.DataAccess
             {
                 ctx.SubCategories.Add(new SubCategory
                 {
-                    Name = "Nvidia",
+                    Name = "Nvidia"
+                    
                 });
                 ctx.SaveChanges();
             }
@@ -52,7 +53,7 @@ namespace WU18.KingPim.Data.DataAccess
                     PriceExVat = 8000,
                     StartCampaign = DateTime.Now,
                     StockBalance = 30,
-                    SubCategoryId = null
+                    SubCategoryId = 1
                 });
                 ctx.SaveChanges();
             }
