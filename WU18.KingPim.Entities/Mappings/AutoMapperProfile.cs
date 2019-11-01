@@ -9,6 +9,8 @@ namespace WU18.KingPim.Entities.Mappings
         public AutoMapperProfile()
         {
             CreateMap<Product, ProductViewModel>().ReverseMap();
+            CreateMap<Category, CategoryViewModel>().ReverseMap();
+            CreateMap<SubCategory, SubCategoryViewModel>().ReverseMap();
         }
     }
 }

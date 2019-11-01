@@ -1,6 +1,22 @@
-﻿
+﻿@*@model IEnumerable<HomeViewModel>*@
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
+
+@*@foreach (var m in Model)
+{
+    @foreach (var p in m.Products)
+    {
+        <p>@p.Name</p>
+    }
+    @foreach (var c in m.Categories)
+    {
+        <p>@c.Name</p>
+    }
+    @foreach (var s in m.SubCategories)
+    {
+        <p>@s.Name</p>
+    }
+}*@
