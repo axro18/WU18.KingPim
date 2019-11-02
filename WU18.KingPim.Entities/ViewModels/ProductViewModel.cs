@@ -26,5 +26,8 @@ namespace WU18.KingPim.Entities.ViewModels
         public DateTime? EndCampaign { get; set; }
         public decimal PriceExVat { get; set; }
         public int? SubCategoryId { get; set; }
+
+        public IEnumerable<CategoryViewModel> Categories { get; set; }
+        public IEnumerable<SubCategoryViewModel> SubCategories { get; set; }
     }
 }

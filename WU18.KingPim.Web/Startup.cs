@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using WU18.KingPim.Data.DataAccess;
 using WU18.KingPim.Entities.Mappings;
 using WU18.KingPim.Entities.Repositories;
+using WU18.KingPim.Entities.Services.Implementation;
+using WU18.KingPim.Entities.Services.Interfaces;
 
 namespace WU18.KingPim.Web
 {
@@ -23,6 +25,12 @@ namespace WU18.KingPim.Web
         {
             services.AddAutoMapper(typeof(Startup));
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<ISubCategoryRepository, SubcategoryRepository>();
+
+            services.AddTransient<IProductService, ProductService>();
+            //services.AddTransient<ICategoryService, CategoryService>();
+            //services.AddTransient<ISubCategoryService, SubCategoryService>();
             services.AddMvc();
 
             services.AddDbContext<KingPimContext>(options =>

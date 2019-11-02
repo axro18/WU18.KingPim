@@ -7,6 +7,6 @@ namespace WU18.KingPim.Entities.Repositories
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> Products { get; }
+        IEnumerable<Product> GetProducts();
     }
 }
