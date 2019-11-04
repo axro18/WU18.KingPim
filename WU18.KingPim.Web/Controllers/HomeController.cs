@@ -13,38 +13,25 @@ namespace WU18.KingPim.Web.Controllers.Home
     public class HomeController : Controller
     {
         private readonly IProductService _productService;
-
+        //private SubCategory _subCategory;
         public HomeController(IProductService productService)
         {
             _productService = productService;
+            //_subCategory = new SubCategory();
         }
 
-        [HttpGet]
-        public IActionResult GetAll()
+        [HttpPost]
+        public IActionResult AddProduct(ProductViewModel productViewModel)
         {
-            return Ok(_productService.GetAll());
+            //TODO Try Catch
+            _productService.AddItem(productViewModel);
+            return Ok();
         }
 
         public IActionResult Index()
         {
+            //_subCategory = new SubCategory();
             return View(_productService.GetAll());
         }
-        //private readonly IProductRepository _repo;
-        //private readonly IMapper _mapper;
-        //public HomeController(IProductRepository productRepository, IMapper mapper)
-        //{
-
-        //    _repo = productRepository;
-        //    _mapper = mapper;
-        //}
-        //public IActionResult Index()
-        //{
-        //    var data = new HomeViewModel();
-        //    data.Products = _mapper.Map<IEnumerable<ProductViewModel>>(_repo);
-        //    data.Categories = _mapper.Map<IEnumerable<CategoryViewModel>>(_repo);
-        //    data.SubCategories = _mapper.Map<IEnumerable<SubCategoryViewModel>>(_repo);
-        //    //var data = _repo.Products.Select(x => _mapper.Map<Product, ProductViewModel>(x)) + _repo.SubCategories.Select(e => _mapper.Map<SubCategory, Sub>);
-        //    return View(data);
-        //}
     }
 }

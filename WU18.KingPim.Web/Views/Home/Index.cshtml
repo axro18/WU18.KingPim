@@ -1,22 +1,22 @@
-﻿@*@model IEnumerable<HomeViewModel>*@
+﻿@using System.Linq
+@model IEnumerable<ProductViewModel>
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
 
-@*@foreach (var m in Model)
+<form asp-controller="Home" asp-action="AddProduct" method="post">
+    <input type="text" asp-for="@Model" name="Name" />
+    <button type="submit">Lägg till</button>
+</form>
+
+@foreach (var m in Model)
 {
-    @foreach (var p in m.Products)
+    <p>@m.Name</p>
+    @if (m.SubCategoryId != null)
     {
-        <p>@p.Name</p>
+        <p>@m.SubCategory.Name</p>
     }
-    @foreach (var c in m.Categories)
-    {
-        <p>@c.Name</p>
-    }
-    @foreach (var s in m.SubCategories)
-    {
-        <p>@s.Name</p>
-    }
-}*@
+
+}

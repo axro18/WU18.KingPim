@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
+using WU18.KingPim.Data.Models;
 using WU18.KingPim.Entities.Repositories;
 using WU18.KingPim.Entities.Services.Interfaces;
 using WU18.KingPim.Entities.ViewModels;
@@ -20,5 +21,12 @@ namespace WU18.KingPim.Entities.Services.Implementation
         {
             return _mapper.Map<IEnumerable<ProductViewModel>>(_productRepository.GetProducts());
         }
+
+        public void AddItem(ProductViewModel productViewModel)
+        {
+            //_mapper.Map<ProductViewModel>(_productRepository.AddProduct(productViewModel));
+            _productRepository.AddProduct(_mapper.Map<Product>(productViewModel));
+        }
+
     }
 }

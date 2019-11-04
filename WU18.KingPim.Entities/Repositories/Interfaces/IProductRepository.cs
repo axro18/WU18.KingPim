@@ -8,5 +8,6 @@ namespace WU18.KingPim.Entities.Repositories
     public interface IProductRepository
     {
         IEnumerable<Product> GetProducts();
+        void AddProduct(Product product);
     }
 }

@@ -1,20 +1,27 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using WU18.KingPim.Data.DataAccess;
 
 namespace WU18.KingPim.Entities.Repositories
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class /*IEntity*/
     {
-        private readonly KingPimContext _ctx;
+        protected readonly KingPimContext _ctx;
 
         public GenericRepository(KingPimContext ctx)
         {
             _ctx = ctx;
         }
-        public IEnumerable<TEntity> FindAll()
+        public IQueryable<TEntity> FindAll()
         {
-            return _ctx.Set<TEntity>().ToList();
+            return _ctx.Set<TEntity>().AsNoTracking();
+        }
+
+        public void AddItem(TEntity entity)
+        {
+            _ctx.Add(entity);
+            _ctx.SaveChanges();
         }
     }
 }

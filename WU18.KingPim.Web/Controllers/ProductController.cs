@@ -25,10 +25,6 @@ namespace WU18.KingPim.Web.Controllers
 
         public IActionResult List()
         {
-            //var productViewModel = new ProductViewModel();
-            //productViewModel.Categories = _mapper.Map<IEnumerable<CategoryViewModel>>(_category);
-            //productViewModel.SubCategories = _mapper.Map<IEnumerable<SubCategoryViewModel>>(_subCategory);
-            ////var data = _repo.Products.Select(x => _mapper.Map<Product, ProductViewModel>(x));
             return View(/*productViewModel*/);
         }
 
