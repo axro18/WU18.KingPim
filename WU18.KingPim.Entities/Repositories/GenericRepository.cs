@@ -7,9 +7,9 @@ namespace WU18.KingPim.Entities.Repositories
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class /*IEntity*/
     {
-        protected readonly KingPimContext _ctx;
+        private readonly KingPimContext _ctx;
 
-        public GenericRepository(KingPimContext ctx)
+        protected GenericRepository(KingPimContext ctx)
         {
             _ctx = ctx;
         }
