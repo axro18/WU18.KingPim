@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WU18.KingPim.Data.Models
 {
-    public class Category
+    public class Category : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

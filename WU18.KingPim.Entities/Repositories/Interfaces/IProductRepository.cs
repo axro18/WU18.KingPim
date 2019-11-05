@@ -9,5 +9,7 @@ namespace WU18.KingPim.Entities.Repositories
     {
         IEnumerable<Product> GetProducts();
         void AddProduct(Product product);
+        Product FindProductById(int id);
+        void RemoveProduct(int id);
     }
 }

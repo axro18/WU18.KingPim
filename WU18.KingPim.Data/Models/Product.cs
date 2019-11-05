@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WU18.KingPim.Data.Models
 {
-    public class Product
+    public class Product : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

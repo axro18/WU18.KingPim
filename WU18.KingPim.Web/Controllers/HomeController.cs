@@ -10,6 +10,7 @@ using WU18.KingPim.Entities.ViewModels;
 
 namespace WU18.KingPim.Web.Controllers.Home
 {
+
     public class HomeController : Controller
     {
         private readonly IProductService _productService;
@@ -17,12 +18,26 @@ namespace WU18.KingPim.Web.Controllers.Home
         {
             _productService = productService;
         }
+
+        [HttpGet]
+        public IActionResult GetProductById(int id)
+        {
+           return View("Product", _productService.FindById(id));
+        }
+
+        [HttpPost]
+        public IActionResult RemoveProduct(int id)
+        {
+            _productService.DeleteItem(id);
+            return RedirectToAction(nameof(Index));
+        }
         [HttpPost]
         public IActionResult AddProduct(ProductViewModel productViewModel)
         {
             //TODO Try Catch
+            productViewModel.CreatedDate = DateTime.Now;
             _productService.AddItem(productViewModel);
-            return Ok();
+            return RedirectToAction(nameof(Index));
         }
         public IActionResult Index()
         {
