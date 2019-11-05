@@ -14,15 +14,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Partial\" />
-    <Folder Include="wwwroot\css\" />
-    <Folder Include="wwwroot\js\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\WU18.KingPim.Common\WU18.KingPim.Common.csproj" />
     <ProjectReference Include="..\WU18.KingPim.Data\WU18.KingPim.Data.csproj" />
     <ProjectReference Include="..\WU18.KingPim.Entities\WU18.KingPim.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Partial\" />
   </ItemGroup>
 
 </Project>
