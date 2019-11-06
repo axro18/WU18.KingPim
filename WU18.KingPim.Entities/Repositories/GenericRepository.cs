@@ -36,5 +36,11 @@ namespace WU18.KingPim.Entities.Repositories
         {
             return _ctx.Set<TEntity>().AsNoTracking().FirstOrDefault(e => e.Id == id);
         }
+
+        public void EditItem(TEntity entity)
+        {
+            _ctx.Set<TEntity>().Update(entity);
+            _ctx.SaveChanges();
+        }
     }
 }

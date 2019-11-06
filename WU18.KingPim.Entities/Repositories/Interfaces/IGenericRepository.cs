@@ -10,5 +10,6 @@ namespace WU18.KingPim.Entities.Repositories
         void AddItem(TEntity entity);
         void RemoveItem(int id);
         TEntity FindById(int id);
+        void EditItem(TEntity entity);
     }
 }

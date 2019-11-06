@@ -10,5 +10,6 @@ namespace WU18.KingPim.Entities.Services.Interfaces
         void AddItem(ProductViewModel productViewModel);
         void DeleteItem(int id);
         ProductViewModel FindById(int id);
+        void EditItem(ProductViewModel productViewModel);
     }
 }

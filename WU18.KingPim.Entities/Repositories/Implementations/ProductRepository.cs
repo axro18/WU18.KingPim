@@ -36,5 +36,10 @@ namespace WU18.KingPim.Entities.Repositories
         {
             RemoveItem(id);
         }
+
+        public void EditProduct(Product product)
+        {
+            EditItem(product);
+        }
     }
 }

@@ -43,5 +43,13 @@ namespace WU18.KingPim.Web.Controllers
         {
             return View(_productService.GetAll());
         }
+
+        [HttpPost]
+        public IActionResult EditProduct(ProductViewModel productViewModel)
+        {
+            productViewModel.ModifiedDate = DateTime.Now;
+            _productService.EditItem(productViewModel);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

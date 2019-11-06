@@ -11,5 +11,6 @@ namespace WU18.KingPim.Entities.Repositories
         void AddProduct(Product product);
         Product FindProductById(int id);
         void RemoveProduct(int id);
+        void EditProduct(Product product);
     }
 }

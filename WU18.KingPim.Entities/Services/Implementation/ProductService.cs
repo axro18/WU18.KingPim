@@ -31,13 +31,16 @@ namespace WU18.KingPim.Entities.Services.Implementation
         {
             var entity = FindById(id);
             _productRepository.RemoveProduct(entity.Id);
-            //_productRepository.RemoveProduct(_mapper.Map<ProductViewModel>(entity));
-
         }
 
         public ProductViewModel FindById(int id)
         {
             return _mapper.Map<ProductViewModel>(_productRepository.FindProductById(id));
+        }
+
+        public void EditItem(ProductViewModel productViewModel)
+        {
+            _productRepository.EditProduct(_mapper.Map<Product>(productViewModel));
         }
     }
 }
