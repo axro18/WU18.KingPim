@@ -29,13 +29,13 @@ namespace WU18.KingPim.Web
             services.AddTransient<ISubCategoryRepository, SubcategoryRepository>();
 
             services.AddTransient<IProductService, ProductService>();
-            //services.AddTransient<ICategoryService, CategoryService>();
-            //services.AddTransient<ISubCategoryService, SubCategoryService>();
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<ISubCategoryService, SubCategoryService>();
             services.AddMvc();
 
             services.AddDbContext<KingPimContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("WU18.KingPimConnection")));
-            //AutoMapper profile start
+            //AutoMapper profile instance start
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new AutoMapperProfile());
@@ -51,7 +51,12 @@ namespace WU18.KingPim.Web
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{Id?}");
+            });
             Seeder.FillDbIfEmpty(ctx);
 
         }

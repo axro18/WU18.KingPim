@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WU18.KingPim.Data.DataAccess;
 
 namespace WU18.KingPim.Data.Migrations
 {
     [DbContext(typeof(KingPimContext))]
-    partial class KingPimContextModelSnapshot : ModelSnapshot
+    [Migration("20191106081505_db06_Added_Category_and_Categoryid_to_product")]
+    partial class db06_Added_Category_and_Categoryid_to_product
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,6 +29,8 @@ namespace WU18.KingPim.Data.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<int?>("SubCategoryId");
+
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
@@ -41,6 +45,8 @@ namespace WU18.KingPim.Data.Migrations
                     b.Property<int>("ArtNumber");
 
                     b.Property<decimal>("CampaignPrice");
+
+                    b.Property<int?>("CategoryId");
 
                     b.Property<DateTime?>("CreatedDate");
 
@@ -70,9 +76,11 @@ namespace WU18.KingPim.Data.Migrations
 
                     b.Property<int>("StockBalance");
 
-                    b.Property<int>("SubCategoryId");
+                    b.Property<int?>("SubCategoryId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("SubCategoryId");
 
@@ -85,7 +93,7 @@ namespace WU18.KingPim.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategoryId");
+                    b.Property<int?>("CategoryId");
 
                     b.Property<string>("Name");
 
@@ -98,18 +106,20 @@ namespace WU18.KingPim.Data.Migrations
 
             modelBuilder.Entity("WU18.KingPim.Data.Models.Product", b =>
                 {
+                    b.HasOne("WU18.KingPim.Data.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
+
                     b.HasOne("WU18.KingPim.Data.Models.SubCategory", "SubCategory")
                         .WithMany("Products")
-                        .HasForeignKey("SubCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("SubCategoryId");
                 });
 
             modelBuilder.Entity("WU18.KingPim.Data.Models.SubCategory", b =>
                 {
                     b.HasOne("WU18.KingPim.Data.Models.Category", "Category")
                         .WithMany("SubCategories")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("CategoryId");
                 });
 #pragma warning restore 612, 618
         }

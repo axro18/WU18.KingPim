@@ -8,8 +8,9 @@ using WU18.KingPim.Data.Models;
 using WU18.KingPim.Entities.Services.Interfaces;
 using WU18.KingPim.Entities.ViewModels;
 
-namespace WU18.KingPim.Web.Controllers.Home
+namespace WU18.KingPim.Web.Controllers
 {
+
     public class HomeController : Controller
     {
         private readonly IProductService _productService;
@@ -17,16 +18,38 @@ namespace WU18.KingPim.Web.Controllers.Home
         {
             _productService = productService;
         }
+
+        [HttpGet]
+        public IActionResult GetProductById(int id)
+        {
+           return View("Product", _productService.FindById(id));
+        }
+
+        [HttpPost]
+        public IActionResult RemoveProduct(int id)
+        {
+            _productService.DeleteItem(id);
+            return RedirectToAction(nameof(Index));
+        }
         [HttpPost]
         public IActionResult AddProduct(ProductViewModel productViewModel)
         {
             //TODO Try Catch
+            productViewModel.CreatedDate = DateTime.Now;
             _productService.AddItem(productViewModel);
-            return Ok();
+            return RedirectToAction(nameof(Index));
         }
         public IActionResult Index()
         {
             return View(_productService.GetAll());
+        }
+
+        [HttpPost]
+        public IActionResult EditProduct(ProductViewModel productViewModel)
+        {
+            productViewModel.ModifiedDate = DateTime.Now;
+            _productService.EditItem(productViewModel);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

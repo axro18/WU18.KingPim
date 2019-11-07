@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WU18.KingPim.Data.Models
 {
-    public class Product
+    public class Product : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -23,7 +23,7 @@ namespace WU18.KingPim.Data.Models
         public DateTime? StartCampaign { get; set; }
         public DateTime? EndCampaign { get; set; }
         public decimal PriceExVat { get; set; }
-        public int? SubCategoryId { get; set; }
+        public int SubCategoryId { get; set; }
 
     }
 }

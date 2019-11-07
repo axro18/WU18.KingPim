@@ -15,7 +15,8 @@ namespace WU18.KingPim.Data.DataAccess
             {
                 ctx.SubCategories.Add(new SubCategory
                 {
-                    Name = "Nvidia"
+                    Name = "Nvidia",
+                    CategoryId = 1
                 });
                 ctx.SaveChanges();
             }
@@ -25,8 +26,7 @@ namespace WU18.KingPim.Data.DataAccess
                 ctx.Categories.Add(new Category
                 {
 
-                    Name = "Grafikkort",
-                    SubCategoryId = 1
+                    Name = "Grafikkort"
 
                 });
                 ctx.SaveChanges();

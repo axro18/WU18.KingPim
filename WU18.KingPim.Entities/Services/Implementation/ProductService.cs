@@ -24,9 +24,23 @@ namespace WU18.KingPim.Entities.Services.Implementation
 
         public void AddItem(ProductViewModel productViewModel)
         {
-            //_mapper.Map<ProductViewModel>(_productRepository.AddProduct(productViewModel));
             _productRepository.AddProduct(_mapper.Map<Product>(productViewModel));
         }
 
+        public void DeleteItem(int id)
+        {
+            var entity = FindById(id);
+            _productRepository.RemoveProduct(entity.Id);
+        }
+
+        public ProductViewModel FindById(int id)
+        {
+            return _mapper.Map<ProductViewModel>(_productRepository.FindProductById(id));
+        }
+
+        public void EditItem(ProductViewModel productViewModel)
+        {
+            _productRepository.EditProduct(_mapper.Map<Product>(productViewModel));
+        }
     }
 }
