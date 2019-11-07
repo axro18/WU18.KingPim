@@ -11,15 +11,6 @@ namespace WU18.KingPim.Data.DataAccess
         public static void FillDbIfEmpty(KingPimContext ctx)
         {
 
-            if (!ctx.SubCategories.Any())
-            {
-                ctx.SubCategories.Add(new SubCategory
-                {
-                    Name = "Nvidia",
-                    CategoryId = 1
-                });
-                ctx.SaveChanges();
-            }
 
             if (!ctx.Categories.Any())
             {
@@ -28,6 +19,15 @@ namespace WU18.KingPim.Data.DataAccess
 
                     Name = "Grafikkort"
 
+                });
+                ctx.SaveChanges();
+            }
+            if (!ctx.SubCategories.Any())
+            {
+                ctx.SubCategories.Add(new SubCategory
+                {
+                    Name = "Nvidia",
+                    CategoryId = 1
                 });
                 ctx.SaveChanges();
             }

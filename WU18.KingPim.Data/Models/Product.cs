@@ -13,8 +13,8 @@ namespace WU18.KingPim.Data.Models
         public int PackageDepth { get; set; }
         public int PackageWeight { get; set; }
         public string ModifiedBy { get; set; }
-        public bool? Publish { get; set; }
-        public bool? Discontinued { get; set; }
+        public bool Publish { get; set; }
+        public bool Discontinued { get; set; }
         public int StockBalance { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }

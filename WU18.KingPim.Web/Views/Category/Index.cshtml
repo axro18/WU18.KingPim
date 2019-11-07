@@ -1,7 +1,12 @@
-﻿
+﻿@model IEnumerable<CategoryViewModel>
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
 
+@foreach (var c in Model)
+{
+    <p>@c.Name</p>
+    <p>@c.SubCategories</p>
+}

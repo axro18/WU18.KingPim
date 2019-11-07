@@ -16,8 +16,8 @@ namespace WU18.KingPim.Entities.ViewModels
         public int PackageDepth { get; set; }
         public int PackageWeight { get; set; }
         public string ModifiedBy { get; set; }
-        public bool? Publish { get; set; }
-        public bool? Discontinued { get; set; }
+        public bool Publish { get; set; }
+        public bool Discontinued { get; set; }
         public int StockBalance { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
@@ -26,6 +26,6 @@ namespace WU18.KingPim.Entities.ViewModels
         public DateTime? StartCampaign { get; set; }
         public DateTime? EndCampaign { get; set; }
         public decimal PriceExVat { get; set; }
-        public int? SubCategoryId { get; set; }
+        public int SubCategoryId { get; set; }
     }
 }

@@ -10,6 +10,5 @@ namespace WU18.KingPim.Entities.ViewModels
         public int Id { get; set; }
         public string Name { get; set; }
         public IEnumerable<SubCategory> SubCategories { get; set; }
-        public int? SubCategoryId { get; set; }
     }
 }

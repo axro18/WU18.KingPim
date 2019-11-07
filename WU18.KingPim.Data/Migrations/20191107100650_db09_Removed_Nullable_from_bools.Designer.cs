@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WU18.KingPim.Data.DataAccess;
 
 namespace WU18.KingPim.Data.Migrations
 {
     [DbContext(typeof(KingPimContext))]
-    partial class KingPimContextModelSnapshot : ModelSnapshot
+    [Migration("20191107100650_db09_Removed_Nullable_from_bools")]
+    partial class db09_Removed_Nullable_from_bools
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

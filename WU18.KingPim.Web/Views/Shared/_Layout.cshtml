@@ -4,27 +4,20 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/lib/jquery/jquery.min.js"></script>
-    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="~/css/Site.css" rel="stylesheet" />
-    <script src="~/js/SideNav.js"></script>
     <script src="~/lib/popper.js/popper.min.js"></script>
+    <script src="~/lib/jquery/jquery.min.js"></script>
+
+    <script src="~/js/SideNav.js"></script>
+    <link href="~/css/Site.css" rel="stylesheet" />
+    @*<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">*@
 </head>
 <body>
 
-    <div class="content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <button type="button" id="sidebarCollapse" class="btn btn-info">
-                    <i class="fas fa-align-left"></i>
-                    <span>Visa menyn</span>
-                </button>
-            </div>
-        </nav>
-    </div>
     <div class="wrapper">
+        <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>KingPim</h3>
@@ -32,39 +25,37 @@
 
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-home">
-                        </i>
-                            Hem
-                    </a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li><a href="#">Produkter</a></li>
-                        <li><a href="#">Kategorier</a></li>
-                        <li><a href="#">Under-kategorier</a></li>
-                    </ul>
+                    <a class="btn btn-outline-info" asp-controller="Home" asp-action="Index">Home</a>
                 </li>
                 <li>
-                    @*<a href="#"><i class="fas fa-tools"></i>Verktyg</a>*@
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-tools"></i>
-                        Verktyg
-                    </a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li><a href="#">Lägg till Produkt</a></li>
-                        <li><a href="#">Lägg till Kategori</a></li>
-                        <li><a href="#">Lägg till Under-kategori</a></li>
-                    </ul>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a asp-controller="Product" asp-action="List" class="btn btn-outline-info">Pages</a>
+                </li>
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
                 </li>
             </ul>
         </nav>
+        <div id="content">
 
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
 
-        @* Page content *@
-
-    </div>
-    @*<partial name="SideNavPartial"/>*@
-    <div class="container">
-        @RenderBody()
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                </div>
+            </nav>
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
     </div>
 </body>
 </html>
