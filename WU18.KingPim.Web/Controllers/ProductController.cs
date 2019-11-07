@@ -23,12 +23,7 @@ namespace WU18.KingPim.Web.Controllers
             _mapper = mapper;
         }
 
-        public IActionResult List()
-        {
-            return View(/*productViewModel*/);
-        }
-
-        public IActionResult Index()
+        public IActionResult CreateEditProduct()
         {
             return View();
         }
