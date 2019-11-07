@@ -5,6 +5,10 @@ namespace WU18.KingPim.Entities.Repositories
 {
     public interface ICategoryRepository
     {
-        IEnumerable<Category> Categories { get; }
+        IEnumerable<Category> GetCategories();
+        void AddCategory(Category category);
+        Category FindCategoryById(int id);
+        void RemoveCategory(int id);
+        void EditCategory(Category category);
     }
 }

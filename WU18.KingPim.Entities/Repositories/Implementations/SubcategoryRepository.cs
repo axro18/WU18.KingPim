@@ -1,18 +1,36 @@
 ﻿using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using WU18.KingPim.Data.DataAccess;
 using WU18.KingPim.Data.Models;
 
 namespace WU18.KingPim.Entities.Repositories
 {
-    public class SubcategoryRepository : ISubCategoryRepository
+    public class SubcategoryRepository : GenericRepository<SubCategory>, ISubCategoryRepository
     {
-        private readonly KingPimContext ctx;
-
-        public SubcategoryRepository(KingPimContext context)
+        public SubcategoryRepository(KingPimContext ctx) : base(ctx) { }
+        public IEnumerable<SubCategory> GetSubCategories()
         {
-            this.ctx = context;
+            return FindAll().Include("Category").Include("Product");
         }
 
-        public IEnumerable<SubCategory> SubCategories => ctx.SubCategories;
+        public void AddSubCategory(SubCategory subCategory)
+        {
+            AddItem(subCategory);
+        }
+
+        public SubCategory FindSubCategoryById(int id)
+        {
+            return FindById(id);
+        }
+
+        public void RemoveSubCategory(int id)
+        {
+            RemoveItem(id);
+        }
+
+        public void EditSubCategory(SubCategory subCategory)
+        {
+            EditItem(subCategory);
+        }
     }
 }

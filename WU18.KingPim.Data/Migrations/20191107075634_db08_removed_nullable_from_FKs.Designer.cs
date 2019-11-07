@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WU18.KingPim.Data.DataAccess;
 
 namespace WU18.KingPim.Data.Migrations
 {
     [DbContext(typeof(KingPimContext))]
-    partial class KingPimContextModelSnapshot : ModelSnapshot
+    [Migration("20191107075634_db08_removed_nullable_from_FKs")]
+    partial class db08_removed_nullable_from_FKs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,6 +28,8 @@ namespace WU18.KingPim.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name");
+
+                    b.Property<int>("SubCategoryId");
 
                     b.HasKey("Id");
 

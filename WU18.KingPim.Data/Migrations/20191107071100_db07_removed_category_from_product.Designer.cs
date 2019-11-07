@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WU18.KingPim.Data.DataAccess;
 
 namespace WU18.KingPim.Data.Migrations
 {
     [DbContext(typeof(KingPimContext))]
-    partial class KingPimContextModelSnapshot : ModelSnapshot
+    [Migration("20191107071100_db07_removed_category_from_product")]
+    partial class db07_removed_category_from_product
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,6 +28,8 @@ namespace WU18.KingPim.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name");
+
+                    b.Property<int?>("SubCategoryId");
 
                     b.HasKey("Id");
 
@@ -70,7 +74,7 @@ namespace WU18.KingPim.Data.Migrations
 
                     b.Property<int>("StockBalance");
 
-                    b.Property<int>("SubCategoryId");
+                    b.Property<int?>("SubCategoryId");
 
                     b.HasKey("Id");
 
@@ -85,7 +89,7 @@ namespace WU18.KingPim.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategoryId");
+                    b.Property<int?>("CategoryId");
 
                     b.Property<string>("Name");
 
@@ -100,16 +104,14 @@ namespace WU18.KingPim.Data.Migrations
                 {
                     b.HasOne("WU18.KingPim.Data.Models.SubCategory", "SubCategory")
                         .WithMany("Products")
-                        .HasForeignKey("SubCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("SubCategoryId");
                 });
 
             modelBuilder.Entity("WU18.KingPim.Data.Models.SubCategory", b =>
                 {
                     b.HasOne("WU18.KingPim.Data.Models.Category", "Category")
                         .WithMany("SubCategories")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("CategoryId");
                 });
 #pragma warning restore 612, 618
         }
