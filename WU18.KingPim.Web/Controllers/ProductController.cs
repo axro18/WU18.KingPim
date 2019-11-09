@@ -13,6 +13,11 @@ namespace WU18.KingPim.Web.Controllers
         {
             _productService = productService;
         }
+        [HttpGet]
+        public IActionResult GetProductById(int id)
+        {
+            return View("CreateProduct", _productService.FindById(id));
+        }
         [HttpPost]
         public IActionResult AddProduct(ProductViewModel productViewModel)
         {

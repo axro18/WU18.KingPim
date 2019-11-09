@@ -14,16 +14,13 @@ namespace WU18.KingPim.Web.Controllers
     public class HomeController : Controller
     {
         private readonly IProductService _productService;
-        public HomeController(IProductService productService)
+        private readonly ICategoryService _categoryService;
+        public HomeController(IProductService productService, ICategoryService categoryService)
         {
             _productService = productService;
+            _categoryService = categoryService;
         }
 
-        [HttpGet]
-        public IActionResult GetProductById(int id)
-        {
-           return View("Product", _productService.FindById(id));
-        }
         public IActionResult Index()
         {
             return View(_productService.GetAll());
