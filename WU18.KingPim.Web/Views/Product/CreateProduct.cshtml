@@ -1,0 +1,78 @@
+﻿@model ProductViewModel
+@{
+    ViewData["Title"] = "CreateEditProduct";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12 offset-md-1">
+            <div class="card">
+                <div class="card-header">Create Product</div>
+                <div class="card-body">
+                    <form class="col-md-12 mt-4 mt-md-0" asp-controller="Product" asp-action="AddProduct" method="post">
+                        <div class="form-row">
+                            <div class="col-md-2 form-group"></div>
+                            <div class="col-md-4 form-group">
+                                <label asp-for="Name">Name</label>
+                                <input asp-for="Name" name="Name" class="form-control" type="text" />
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label asp-for="ArtNumber">Article Number</label>
+                                <input asp-for="ArtNumber" name="ArtNumber" class="form-control" type="text" />
+                            </div>
+                            <div class="col-md-2 form-group"></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-2 form-group">
+
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label asp-for="StockBalance">Stock Balance</label>
+                                <input asp-for="StockBalance" name="StockBalance" class="form-control" type="text" />
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label asp-for="PriceExVat">Price excluding VAT</label>
+                                <input asp-for="PriceExVat" name="PriceExVat" class="form-control" type="text" />
+                            </div>
+                            <div class="col-md-2 form-group">
+
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-3 form-group">
+                                <label asp-for="PackageWidth">Package Width (mm)</label>
+                                <input asp-for="PackageWidth" name="PackageWidth" class="form-control" type="text" />
+                            </div>
+                            <div class="col-md-3 form-group">
+                                <label asp-for="PackageHeight">Package Height (mm)</label>
+                                <input asp-for="PackageHeight" name="PackageHeight" class="form-control" type="text" />
+                            </div>
+                            <div class="col-md-3 form-group">
+                                <label asp-for="PackageDepth">Package Depth (mm)</label>
+                                <input asp-for="PackageDepth" name="PackageDepth" class="form-control" type="text" />
+                            </div>
+                            <div class="col-md-3 form-group">
+                                <label asp-for="PackageWeight">Package Weight (g)</label>
+                                <input asp-for="PackageWeight" name="PackageWeight" class="form-control" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="custom-control custom-switch">
+                                <div class="col-md-4 form-group">
+                                    <input asp-for="Publish" name="Publish" type="checkbox" class="custom-control-input" id="customSwitch1" />
+                                    <label asp-for="Publish" class="custom-control-label" for="customSwitch1">Publish</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12 text-md-center">
+                                    <button type="submit" class="btn btn-outline-success">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
