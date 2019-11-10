@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WU18.KingPim.Entities.Services.Interfaces;
+using WU18.KingPim.Entities.ViewModels;
 
 namespace WU18.KingPim.Web.Controllers
 {
@@ -16,8 +17,7 @@ namespace WU18.KingPim.Web.Controllers
         }
         public IActionResult Index()
         {
-            _categoryService.DeleteItem(1);
-            return View();
+            return View(_categoryService.GetAll());
         }
     }
 }

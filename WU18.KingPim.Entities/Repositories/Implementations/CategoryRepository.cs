@@ -11,7 +11,7 @@ namespace WU18.KingPim.Entities.Repositories
         public CategoryRepository(KingPimContext ctx) : base(ctx) { }
         public IEnumerable<Category> GetCategories()
         {
-            return FindAll().Include("SubCategory").Include("Product");
+            return FindAll();
         }
 
         public void AddCategory(Category category)
