@@ -57,6 +57,22 @@
                             </div>
                         </div>
                         <div class="form-row">
+                            
+                            <div class="col-md-4 form-group">
+                                <label asp-for="StartCampaign">Start Campaign Date</label>
+                                <input asp-for="StartCampaign" name="StartCampaign" class="form-control" type="date" />
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label asp-for="EndCampaign">End Campaign Date</label>
+                                <input asp-for="EndCampaign" name="EndCampaign" class="form-control" type="date" />
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label asp-for="CampaignPrice">Campaign Price %</label>
+                                <input asp-for="CampaignPrice" name="CampaignPrice" class="form-control" type="text" />
+                            </div>
+                         
+                        </div>
+                        <div class="form-row">
                             <div class="custom-control custom-switch">
                                 <div class="col-md-4 form-group">
                                     <input asp-for="Publish" name="Publish" type="checkbox" class="custom-control-input" id="customSwitch1" />
@@ -66,7 +82,7 @@
                         </div>
                         <div class="form-row">
                             <div class="col-md-12 text-md-center">
-                                    <button type="submit" class="btn btn-outline-success">Save</button>
+                                <button type="submit" class="btn btn-outline-success">Save</button>
                             </div>
                         </div>
                     </form>

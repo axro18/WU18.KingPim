@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ProductViewModel>
+@{
+    ViewData["Title"] = "Product";
+}
+
+<h1>Product</h1>
+<div class="row">
+    <div class="align-content-center">
+        <div class="card">
+            <div class="card-header">Product List</div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">ArtNumber</th>
+                            <th scope="col">Package Width (mm)</th>
+                            <th scope="col">Package Height (mm)</th>
+                            <th scope="col">Package Depth (mm)</th>
+                            <th scope="col">Package Weight (g)</th>
+                            <th scope="col">Published</th>
+                            <th scope="col">Discontinued</th>
+                            <th scope="col">Stock Balance</th>
+                            <th scope="col">Price ExVat (SEK)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var m in Model)
+                        {
+                            <tr>
+                                <td><strong><a asp-controller="Product" asp-action="GetProductById" asp-route-id="@m.Id">@m.Name</a></strong></td>
+                                <td>@m.ArtNumber</td>
+                                <td>@m.PackageWidth</td>
+                                <td>@m.PackageHeight</td>
+                                <td>@m.PackageDepth</td>
+                                <td>@m.PackageWeight</td>
+                                @if (m.Publish)
+                                {
+                                    <td><i class="fas fa-check"></i></td>
+                                }
+                                else
+                                {
+                                    <td><i class="fas fa-times"></i></td>
+                                }
+                                @if (!m.Discontinued)
+                                {
+                                    <td><i class="fas fa-times"></i></td>
+                                }
+                                else
+                                {
+                                    <td><i class="fas fa-check"></i></td>
+                                }
+
+                                <td>@m.StockBalance</td>
+                                <td>@m.PriceExVat</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

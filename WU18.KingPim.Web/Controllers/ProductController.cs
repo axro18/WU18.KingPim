@@ -43,5 +43,10 @@ namespace WU18.KingPim.Web.Controllers
         {
             return View();
         }
+
+        public IActionResult Products()
+        {
+            return View(_productService.GetAll());
+        }
     }
 }
