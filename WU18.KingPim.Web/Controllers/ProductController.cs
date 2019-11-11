@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using WU18.KingPim.Entities.Services.Interfaces;
 using WU18.KingPim.Entities.ViewModels;
 
@@ -41,7 +43,8 @@ namespace WU18.KingPim.Web.Controllers
         }
         public IActionResult CreateProduct()
         {
-            return View();
+            var viewmodel = new ProductViewModel();
+            return View(viewmodel);
         }
 
         public IActionResult Products()

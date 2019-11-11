@@ -1,11 +1,4 @@
-﻿body {
-}
-body {
-}
-h1 {
-    /*font-weight: 900;
-    color: #ff8d00;*/
-}
+﻿
 @media (min-width: 1200px) {
     h1 {
         font-size: 60px;
