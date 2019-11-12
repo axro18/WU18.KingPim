@@ -1,3 +1,6 @@
 ﻿@model SubCategoryViewModel
 
-<select asp-items="Model.SubCategorySelectList"></select>
+
+<select asp-for="selectedSubCategoryId" name="SubCategoryId" asp-items="Model.SubCategorySelectList" class="form-control col-md-12">
+    
+</select>

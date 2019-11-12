@@ -18,9 +18,7 @@ namespace WU18.KingPim.Web
         {
             Configuration = configuration;
         }
-
         private IConfiguration Configuration { get; }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Startup));
@@ -44,7 +42,6 @@ namespace WU18.KingPim.Web
             services.AddSingleton(mapper);
             //AutoMapper profile end
         }
-
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, KingPimContext ctx)
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
@@ -58,9 +55,6 @@ namespace WU18.KingPim.Web
                     template: "{controller=Home}/{action=Index}/{Id?}");
             });
             Seeder.FillDbIfEmpty(ctx);
-
         }
-
-        
     }
 }

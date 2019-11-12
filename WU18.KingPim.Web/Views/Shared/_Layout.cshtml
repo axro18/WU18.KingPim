@@ -29,13 +29,13 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle btn btn-outline-dark">Inventory</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Categories</a>
+                            <a asp-controller="Category" asp-action="Index">Categories</a>
                         </li>
                         <li>
-                            <a href="#">Subcategories</a>
+                            <a asp-controller="SubCategory" asp-action="Index">Subcategories</a>
                         </li>
                         <li>
-                            <a href="#">Products</a>
+                            <a asp-controller="Product" asp-action="Products">Products</a>
                         </li>
                     </ul>
                 </li>
@@ -43,13 +43,13 @@
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle btn btn-outline-dark">Tools</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Manage Categories</a>
+                            <a asp-controller="Category" asp-action="CreateCategory">Manage Categories</a>
                         </li>
                         <li>
-                            <a href="#">Manage Subcategories</a>
+                            <a asp-controller="SubCategory" asp-action="CreateSubCategory">Manage Subcategories</a>
                         </li>
                         <li>
-                            <a asp-controller="Product" asp-action="CreateProduct">Manage Products</a>
+                            <a asp-controller="Product" asp-action="CreateProduct">Create Product</a>
                         </li>
                     </ul>
                 </li>

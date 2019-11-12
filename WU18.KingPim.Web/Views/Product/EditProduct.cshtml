@@ -1,6 +1,7 @@
-﻿@model ProductViewModel
+﻿@using Microsoft.EntityFrameworkCore.Query.Expressions
+@model ProductViewModel
 @{
-    ViewData["Title"] = "Create Product";
+    ViewData["Title"] = "Edit Product";
 }
 
 <div class="mt-5">
@@ -9,7 +10,7 @@
             <div class="card">
                 <div class="card-header">Create Product</div>
                 <div class="card-body">
-                    <form class="col-md-12 mt-4 mt-md-0" asp-controller="Product" asp-action="AddProduct" method="post">
+                    <form class="col-md-12 mt-4 mt-md-0" asp-controller="Product" asp-action="EditProduct" asp-route-id="@Model.Id" method="post">
                         <div class="form-row">
                             <div class="col-md-2 form-group"></div>
                             <div class="col-md-4 form-group">
@@ -98,6 +99,9 @@
                         <div class="form-row">
                             <div class="col-md-12 text-md-center">
                                 <button type="submit" class="btn btn-outline-success">Save</button>
+                                <div class="col-md-2">
+                                    <a asp-controller="Product" asp-action="RemoveProduct" asp-route-id="@Model.Id" class="btn btn-outline-danger">Remove Product</a>
+                                </div>
                             </div>
                         </div>
                     </form>

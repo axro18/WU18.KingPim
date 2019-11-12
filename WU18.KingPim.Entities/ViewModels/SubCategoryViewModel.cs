@@ -14,5 +14,6 @@ namespace WU18.KingPim.Entities.ViewModels
         public IEnumerable<ProductViewModel> Products { get; set; }
         public int CategoryId { get; set; }
         public IEnumerable<SelectListItem> SubCategorySelectList { get; set; }
+        public int selectedSubCategoryId { get; set; }
     }
 }

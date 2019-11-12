@@ -1,18 +1,30 @@
 ﻿@model IEnumerable<CategoryViewModel>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Categories";
 }
 
-<h1>Index</h1>
 
 <div class="row">
-    <div class="col-4">
+    <div class="col-md-12">
         <div class="align-self-center">
-            @foreach (var c in Model)
-            {
-                <a asp-controller="Category" asp-action=""></a>
-             
-            }
+            <div class="card">
+                <div class="card-header">
+                    <div class="text-right">
+                        <a asp-controller="Category" asp-action="CreateCategory" class="btn btn-outline-primary">Create Category</a>
+                    </div>
+                    Categories
+                </div>
+                <div class="card-body text-center">
+                    @foreach (var c in Model)
+                    {
+                        <div class="card-header btn btn-outline-info form-group">
+                            <a asp-controller="Category" asp-action="GetCategoryById" asp-route-id="@c.Id" class="btn form-control"><strong>@c.Name</strong></a>
+                        </div>
+                    }
+                </div>
+
+
+            </div>
         </div>
     </div>
 </div>

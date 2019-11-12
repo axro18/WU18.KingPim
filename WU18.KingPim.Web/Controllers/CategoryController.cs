@@ -18,30 +18,35 @@ namespace WU18.KingPim.Web.Controllers
         [HttpGet]
         public IActionResult GetCategoryById(int id)
         {
-            return View("CreateCategory", _categoryService.FindById(id));
+            return View("EditCategory", _categoryService.FindById(id));
         }
         [HttpPost]
         public IActionResult AddCategory(CategoryViewModel categoryViewModel)
         {
             //TODO Try Catch
             _categoryService.AddItem(categoryViewModel);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Category");
         }
         [HttpPost]
         public IActionResult EditCategory(CategoryViewModel categoryViewModel)
         {
             _categoryService.EditItem(categoryViewModel);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Category");
         }
         [HttpPost]
         public IActionResult RemoveCategory(int id)
         {
             _categoryService.DeleteItem(id);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Category");
         }
         public IActionResult Index()
         {
             return View(_categoryService.GetAll());
+        }
+
+        public IActionResult CreateCategory()
+        {
+            return View();
         }
     }
 }

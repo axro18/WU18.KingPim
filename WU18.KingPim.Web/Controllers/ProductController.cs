@@ -18,7 +18,7 @@ namespace WU18.KingPim.Web.Controllers
         [HttpGet]
         public IActionResult GetProductById(int id)
         {
-            return View("CreateProduct", _productService.FindById(id));
+            return View("EditProduct", _productService.FindById(id));
         }
         [HttpPost]
         public IActionResult AddProduct(ProductViewModel productViewModel)

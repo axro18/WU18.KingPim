@@ -1,7 +1,35 @@
-﻿
+﻿@model SubCategoryViewModel
 @{
-    ViewData["Title"] = "CreateSubCategory";
+    ViewData["Title"] = "Create Subcategory";
 }
-
-<h1>CreateSubCategory</h1>
-
+<div class="mt-5">
+    <div class="row">
+        <div class="col-md-12 offset-md-1">
+            <div class="card">
+                <div class="card-header">Create Category</div>
+                <div class="card-body">
+                    <form asp-controller="SubCategory" asp-action="AddSubCategory" class="col-md-12 mt-4 mt-md-0" method="post">
+                        <div class="form-row">
+                            <div class="form-group col-md-4"></div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="Name">Name</label>
+                                <input asp-for="Name" name="Name" type="text" class="form-control" />
+                                <br />
+                                @await Component.InvokeAsync("CategoryDropDown", new { selectedCategoryId = Model.CategoryId })
+                            </div>
+                            <div class="form-group col-md-4">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4"></div>
+                            <div class="form-group col-md-4 text-center">
+                                <button type="submit" class="btn btn-outline-success">Save</button>
+                            </div>
+                            <div class="form-group col-md-4"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

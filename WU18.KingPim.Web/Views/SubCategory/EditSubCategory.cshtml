@@ -1,22 +1,25 @@
-﻿@model CategoryViewModel
+﻿@model SubCategoryViewModel
 @{
-    ViewData["Title"] = "Create Category";
+    ViewData["Title"] = "Edit Subcategory";
 }
 
 <div class="mt-5">
     <div class="row">
         <div class="col-md-12 offset-md-1">
             <div class="card">
-                <div class="card-header">Create Category</div>
+                <div class="card-header">Create Subcategory</div>
                 <div class="card-body">
-                    <form asp-controller="Category" asp-action="AddCategory" method="post" class="col-md-12 mt-4 mt-md-0">
+                    <form asp-controller="SubCategory" asp-action="EditSubCategory" asp-route-id="@Model.Id" method="post" class="col-md-12 mt-4 mt-md-0">
                         <div class="form-row">
                             <div class="form-group col-md-4"></div>
                             <div class="form-group col-md-4">
                                 <label asp-for="Name">Name</label>
                                 <input asp-for="Name" name="Name" type="text" class="form-control" />
+                                <br />
+                                @await Component.InvokeAsync("CategoryDropDown", new { selectedCategoryId = Model.CategoryId })
                             </div>
-                            <div class="form-group col-md-4"></div>
+                            <div class="form-group col-md-4">
+                            </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4"></div>
@@ -25,6 +28,9 @@
                             </div>
                             <div class="form-group col-md-4"></div>
                         </div>
+                    </form>
+                    <form asp-controller="SubCategory" asp-action="RemoveSubCategory" asp-route-id="@Model.Id" method="post">
+                        <button type="submit" class="btn btn-outline-danger">Remove Subcategory</button>
                     </form>
                 </div>
             </div>

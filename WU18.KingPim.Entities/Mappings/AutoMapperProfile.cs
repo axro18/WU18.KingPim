@@ -15,6 +15,9 @@ namespace WU18.KingPim.Entities.Mappings
             CreateMap<SubCategoryViewModel, SelectListItem>()
                 .ForMember(dest => dest.Value, opt => opt.MapFrom(src => src.Id.ToString()))
                 .ForMember(dest => dest.Text, opt => opt.MapFrom(src => src.Name));
+            CreateMap<CategoryViewModel, SelectListItem>()
+                .ForMember(dest => dest.Value, opt => opt.MapFrom(src => src.Id.ToString()))
+                .ForMember(dest => dest.Text, opt => opt.MapFrom(src => src.Name));
         }
     }
 }

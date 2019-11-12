@@ -26,24 +26,28 @@ namespace WU18.KingPim.Web.Controllers
         {
             //TODO Try Catch
             _subCategoryService.AddItem(subCategoryViewModel);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "SubCategory");
         }
         [HttpPost]
         public IActionResult EditSubCategory(SubCategoryViewModel subCategoryViewModel)
         {
             _subCategoryService.EditItem(subCategoryViewModel);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "SubCategory");
         }
         [HttpPost]
         public IActionResult RemoveSubCategory(int id)
         {
             _subCategoryService.DeleteItem(id);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "SubCategory");
         }
-
         public IActionResult Index()
         {
             return View();
+        }
+        public IActionResult CreateSubCategory()
+        {
+            var viewModel = new SubCategoryViewModel();
+            return View(viewModel);
         }
     }
 }
