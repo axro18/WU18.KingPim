@@ -22,7 +22,7 @@ namespace WU18.KingPim.Entities.ViewModels
         public DateTime? CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public decimal CampaignPrice { get; set; }
-        public SubCategory SubCategory { get; set; }
+        public SubCategoryViewModel SubCategory { get; set; }
         public DateTime? StartCampaign { get; set; }
         public DateTime? EndCampaign { get; set; }
         public decimal PriceExVat { get; set; }

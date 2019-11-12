@@ -19,7 +19,7 @@ namespace WU18.KingPim.Entities.Repositories
         public ProductRepository(KingPimContext ctx) : base(ctx) { }
         public IEnumerable<Product> GetProducts()
         {
-            return FindAll().Include("SubCategory"); // FindAll() from generic repository
+            return FindAll().Include("SubCategory");
         }
 
         public void AddProduct(Product product)
