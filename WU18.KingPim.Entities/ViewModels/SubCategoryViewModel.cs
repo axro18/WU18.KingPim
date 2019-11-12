@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using WU18.KingPim.Data.Models;
 
 namespace WU18.KingPim.Entities.ViewModels
@@ -12,5 +13,6 @@ namespace WU18.KingPim.Entities.ViewModels
         public CategoryViewModel Category { get; set; }
         public IEnumerable<ProductViewModel> Products { get; set; }
         public int CategoryId { get; set; }
+        public IEnumerable<SelectListItem> SubCategorySelectList { get; set; }
     }
 }

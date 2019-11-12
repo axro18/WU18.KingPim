@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            
+
                             <div class="col-md-4 form-group">
                                 <label asp-for="StartCampaign">Start Campaign Date</label>
                                 <input asp-for="StartCampaign" name="StartCampaign" class="form-control" type="date" />
@@ -70,13 +70,16 @@
                                 <label asp-for="CampaignPrice">Campaign Price %</label>
                                 <input asp-for="CampaignPrice" name="CampaignPrice" class="form-control" type="text" />
                             </div>
-                         
+
                         </div>
                         <div class="form-row">
                             <div class="custom-control custom-switch">
                                 <div class="col-md-4 form-group">
                                     <input asp-for="Publish" name="Publish" type="checkbox" class="custom-control-input" id="customSwitch1" />
                                     <label asp-for="Publish" class="custom-control-label" for="customSwitch1">Publish</label>
+
+                                    @await Component.InvokeAsync("SubCategoryDropDown", new { selectedSubCategoryId = Model.SubCategoryId })
+
                                 </div>
                             </div>
                         </div>
