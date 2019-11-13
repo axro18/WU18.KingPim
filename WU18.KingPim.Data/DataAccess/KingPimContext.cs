@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using WU18.KingPim.Data.Models;
 
 namespace WU18.KingPim.Data.DataAccess
 {
-    public class KingPimContext : DbContext
+    public class KingPimContext : IdentityDbContext
     {
         public KingPimContext(DbContextOptions<KingPimContext> options) : base(options)
         {
@@ -12,6 +13,7 @@ namespace WU18.KingPim.Data.DataAccess
         public DbSet<Category> Categories { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
