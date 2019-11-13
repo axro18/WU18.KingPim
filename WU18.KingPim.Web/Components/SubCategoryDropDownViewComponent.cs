@@ -20,12 +20,15 @@ namespace WU18.KingPim.Web.Components
         public async Task<IViewComponentResult> InvokeAsync(int selectedSubCategoryId)
             {
             IEnumerable<SubCategoryViewModel> items = _subCategoryService.GetAll();
+            
             var viewmodel = new SubCategoryViewModel()
             {
                 
                 SubCategorySelectList =
                     _mapper.Map<IEnumerable<SubCategoryViewModel>, IEnumerable<SelectListItem>>(items)
+                    
             };
+            viewmodel.SelectedSubCategoryId = selectedSubCategoryId;
             return View(viewmodel);
         }
     }

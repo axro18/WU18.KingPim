@@ -27,6 +27,7 @@ namespace WU18.KingPim.Web.Components
                 CategorySelectList =
                     _mapper.Map<IEnumerable<CategoryViewModel>, IEnumerable<SelectListItem>>(items)
             };
+            viewModel.SelectedCategory = selectedCategoryId;
             return View(viewModel);
         }
     }
