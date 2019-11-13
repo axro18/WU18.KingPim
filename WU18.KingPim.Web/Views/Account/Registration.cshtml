@@ -1,0 +1,37 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Registration";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-outline-success">Register</button>
+            </div>
+            <div>
+                <strong><a href="/account/login">Back to login</a></strong>
+            </div>
+            <div>
+                <strong><a asp-action="Index" asp-controller="Home">Back to new note</a></strong>
+            </div>
+        </form>
+    </div>
+</div>
+

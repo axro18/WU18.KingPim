@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,6 +32,17 @@ namespace WU18.KingPim.Web
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<ISubCategoryService, SubCategoryService>();
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<KingPimContext>();
+            //Global Auth
+            //services.AddMvc(options =>
+            //{
+            //    var policy = new AuthorizationPolicyBuilder()
+            //        .RequireAuthenticatedUser()
+            //        .Build();
+            //    options.Filters.Add(new AuthorizeFilter(policy));
+            //});
             services.AddMvc();
 
             services.AddDbContext<KingPimContext>(options =>
@@ -42,18 +56,20 @@ namespace WU18.KingPim.Web
             services.AddSingleton(mapper);
             //AutoMapper profile end
         }
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, KingPimContext ctx)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, KingPimContext ctx, IIdentitySeeder identitySeeder)
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{Id?}");
             });
+            identitySeeder.CreateAdminAccountIfEmpty();
             Seeder.FillDbIfEmpty(ctx);
         }
     }
