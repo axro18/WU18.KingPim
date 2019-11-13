@@ -12,27 +12,25 @@ namespace WU18.KingPim.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<User> userManager;
-        private readonly SignInManager<User> signInManager;
-        public AccountController(UserManager<User> userManager,
-            SignInManager<User> signInManager)
+        private readonly UserManager<IdentityUser> userManager;
+        private readonly SignInManager<IdentityUser> signInManager;
+        public AccountController(UserManager<IdentityUser> userManager,
+            SignInManager<IdentityUser> signInManager)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
         }
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult Registration()
         {
             return View();
         }
         [HttpPost]
-        [AllowAnonymous]
         public async Task<IActionResult> Registration(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.UserName, Email = model.UserName };
+                var user = new IdentityUser() { UserName = model.UserName, Email = model.UserName };
                 var result = await userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
@@ -47,7 +45,9 @@ namespace WU18.KingPim.Web.Controllers
             }
             return View(model);
         }
+
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login()
         {
             if (User.Identity.IsAuthenticated)
@@ -58,6 +58,7 @@ namespace WU18.KingPim.Web.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel vm)
         {
             var user = await userManager.FindByEmailAsync(vm.UserName);

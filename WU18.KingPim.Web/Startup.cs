@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WU18.KingPim.Data.DataAccess;
+using WU18.KingPim.Data.Models;
 using WU18.KingPim.Entities.Mappings;
 using WU18.KingPim.Entities.Repositories;
 using WU18.KingPim.Entities.Services.Implementation;
@@ -35,15 +36,16 @@ namespace WU18.KingPim.Web
 
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<KingPimContext>();
+            services.AddTransient<IIdentitySeeder, IdentitySeeder>();
             //Global Auth
-            //services.AddMvc(options =>
-            //{
-            //    var policy = new AuthorizationPolicyBuilder()
-            //        .RequireAuthenticatedUser()
-            //        .Build();
-            //    options.Filters.Add(new AuthorizeFilter(policy));
-            //});
-            services.AddMvc();
+            services.AddMvc(options =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+                options.Filters.Add(new AuthorizeFilter(policy));
+            });
+            //services.AddMvc();
 
             services.AddDbContext<KingPimContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("WU18.KingPimConnection")));

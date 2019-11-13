@@ -10,9 +10,9 @@ namespace WU18.KingPim.Data.DataAccess
         private const string _password = "Test123!";
 
         private readonly KingPimContext _ctx;
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public IdentitySeeder(KingPimContext ctx, UserManager<User> userManager)
+        public IdentitySeeder(KingPimContext ctx, UserManager<IdentityUser> userManager)
         {
             _ctx = ctx;
             _userManager = userManager;
@@ -22,7 +22,7 @@ namespace WU18.KingPim.Data.DataAccess
         {
             if (!_ctx.Users.Any(u => u.UserName == _admin))
             {
-                var result = _userManager.CreateAsync(new User()
+                var result = _userManager.CreateAsync(new IdentityUser()
                 {
                     UserName = _admin,
                     Email = "admin@kingpim.com",

@@ -42,7 +42,7 @@ namespace WU18.KingPim.Web.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return View(_subCategoryService.GetAll());
         }
         public IActionResult CreateSubCategory()
         {
