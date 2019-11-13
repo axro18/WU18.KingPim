@@ -19,7 +19,7 @@ namespace WU18.KingPim.Web.Controllers
         [HttpGet]
         public IActionResult GetSubCategoryById(int id)
         {
-            return View("CreateSubCategory", _subCategoryService.FindById(id));
+            return View("EditSubCategory", _subCategoryService.FindById(id));
         }
         [HttpPost]
         public IActionResult AddSubCategory(SubCategoryViewModel subCategoryViewModel)
