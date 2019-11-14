@@ -37,7 +37,7 @@ namespace WU18.KingPim.Web
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<KingPimContext>();
             services.AddTransient<IIdentitySeeder, IdentitySeeder>();
-            //Global Auth
+
             services.AddMvc(options =>
             {
                 var policy = new AuthorizationPolicyBuilder()
@@ -45,18 +45,16 @@ namespace WU18.KingPim.Web
                     .Build();
                 options.Filters.Add(new AuthorizeFilter(policy));
             });
-            //services.AddMvc();
 
             services.AddDbContext<KingPimContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("WU18.KingPimConnection")));
-            //AutoMapper profile instance start
+
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new AutoMapperProfile());
             });
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
-            //AutoMapper profile end
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, KingPimContext ctx, IIdentitySeeder identitySeeder)
         {
