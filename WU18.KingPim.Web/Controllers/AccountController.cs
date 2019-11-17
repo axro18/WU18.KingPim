@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using WU18.KingPim.Data.Models;
+using System.Threading.Tasks;
 using WU18.KingPim.Entities.ViewModels;
 
 namespace WU18.KingPim.Web.Controllers
@@ -61,9 +57,9 @@ namespace WU18.KingPim.Web.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel vm)
         {
-            var user = await userManager.FindByEmailAsync(vm.UserName);
-            if (user != null)
+            if (ModelState.IsValid)
             {
+                var user = await userManager.FindByEmailAsync(vm.UserName);
                 await signInManager.SignOutAsync();
                 if ((await signInManager.PasswordSignInAsync(user, vm.Password, false, false)).Succeeded)
                 {
