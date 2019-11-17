@@ -26,7 +26,7 @@ namespace WU18.KingPim.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser() { UserName = model.UserName, Email = model.UserName };
+                var user = new IdentityUser() { UserName = model.UserName, Email = model.Email };
                 var result = await userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
@@ -41,7 +41,6 @@ namespace WU18.KingPim.Web.Controllers
             }
             return View(model);
         }
-
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Login()
@@ -52,7 +51,6 @@ namespace WU18.KingPim.Web.Controllers
             }
             return View();
         }
-
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel vm)
@@ -68,7 +66,6 @@ namespace WU18.KingPim.Web.Controllers
             }
             return View("Login", vm);
         }
-
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();

@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using AutoMapper;
+﻿using AutoMapper;
+using System.Collections.Generic;
 using WU18.KingPim.Data.Models;
 using WU18.KingPim.Entities.Repositories;
 using WU18.KingPim.Entities.Services.Interfaces;

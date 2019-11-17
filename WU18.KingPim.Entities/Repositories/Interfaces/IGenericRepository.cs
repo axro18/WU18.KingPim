@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Microsoft.EntityFrameworkCore.Migrations.Operations;
+﻿using System.Linq;
 
 namespace WU18.KingPim.Entities.Repositories
 {

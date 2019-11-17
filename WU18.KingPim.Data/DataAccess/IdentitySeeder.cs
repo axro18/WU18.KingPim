@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.Linq;
-using WU18.KingPim.Data.Models;
 
 namespace WU18.KingPim.Data.DataAccess
 {

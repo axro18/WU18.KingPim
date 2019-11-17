@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Mvc;
-using WU18.KingPim.Data.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace WU18.KingPim.Entities.ViewModels
 {
     public class ProductViewModel
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public int ArtNumber { get; set; }
         public int PackageWidth { get; set; }
         public int PackageHeight { get; set; }

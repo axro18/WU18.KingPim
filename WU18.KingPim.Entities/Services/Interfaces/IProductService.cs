@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using WU18.KingPim.Data.Models;
 using WU18.KingPim.Entities.ViewModels;
 
 namespace WU18.KingPim.Entities.Services.Interfaces

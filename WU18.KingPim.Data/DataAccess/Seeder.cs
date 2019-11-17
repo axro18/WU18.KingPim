@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore.Internal;
+﻿using Microsoft.EntityFrameworkCore.Internal;
+using System;
 using WU18.KingPim.Data.Models;
 
 namespace WU18.KingPim.Data.DataAccess
@@ -17,16 +15,16 @@ namespace WU18.KingPim.Data.DataAccess
                 ctx.Categories.Add(new Category
                 {
                     Name = "Grafikkort"
-                });ctx.Categories.Add(new Category
+                }); ctx.Categories.Add(new Category
                 {
                     Name = "Internminne"
-                });ctx.Categories.Add(new Category
+                }); ctx.Categories.Add(new Category
                 {
                     Name = "Hårddiskar"
-                });ctx.Categories.Add(new Category
+                }); ctx.Categories.Add(new Category
                 {
                     Name = "Processor"
-                });ctx.Categories.Add(new Category
+                }); ctx.Categories.Add(new Category
                 {
                     Name = "Moderkort"
                 });
@@ -38,39 +36,39 @@ namespace WU18.KingPim.Data.DataAccess
                 {
                     Name = "Nvidia",
                     CategoryId = 1
-                });ctx.SubCategories.Add(new SubCategory
+                }); ctx.SubCategories.Add(new SubCategory
                 {
                     Name = "AMD",
                     CategoryId = 1
-                });ctx.SubCategories.Add(new SubCategory
+                }); ctx.SubCategories.Add(new SubCategory
                 {
                     Name = "DDR3",
                     CategoryId = 2
-                });ctx.SubCategories.Add(new SubCategory
+                }); ctx.SubCategories.Add(new SubCategory
                 {
                     Name = "DDR4",
                     CategoryId = 2
-                });ctx.SubCategories.Add(new SubCategory
+                }); ctx.SubCategories.Add(new SubCategory
                 {
                     Name = "Mekanisk",
                     CategoryId = 3
-                });ctx.SubCategories.Add(new SubCategory
+                }); ctx.SubCategories.Add(new SubCategory
                 {
                     Name = "SSD",
                     CategoryId = 3
-                });ctx.SubCategories.Add(new SubCategory
+                }); ctx.SubCategories.Add(new SubCategory
                 {
                     Name = "Intel",
                     CategoryId = 4
-                });ctx.SubCategories.Add(new SubCategory
+                }); ctx.SubCategories.Add(new SubCategory
                 {
                     Name = "AMD",
                     CategoryId = 4
-                });ctx.SubCategories.Add(new SubCategory
+                }); ctx.SubCategories.Add(new SubCategory
                 {
                     Name = "Socket AM4",
                     CategoryId = 5
-                });ctx.SubCategories.Add(new SubCategory
+                }); ctx.SubCategories.Add(new SubCategory
                 {
                     Name = "Socket 1151 v2",
                     CategoryId = 5
@@ -99,7 +97,7 @@ namespace WU18.KingPim.Data.DataAccess
                     StartCampaign = DateTime.Now,
                     StockBalance = 30,
                     SubCategoryId = 1
-                });ctx.Products.Add(new Product
+                }); ctx.Products.Add(new Product
                 {
                     ArtNumber = 1002,
                     CampaignPrice = 1.2m,
@@ -118,7 +116,7 @@ namespace WU18.KingPim.Data.DataAccess
                     StartCampaign = DateTime.Now,
                     StockBalance = 30,
                     SubCategoryId = 1
-                });ctx.Products.Add(new Product
+                }); ctx.Products.Add(new Product
                 {
                     ArtNumber = 1003,
                     CampaignPrice = 1.2m,
@@ -137,7 +135,7 @@ namespace WU18.KingPim.Data.DataAccess
                     StartCampaign = DateTime.Now,
                     StockBalance = 30,
                     SubCategoryId = 1
-                });ctx.Products.Add(new Product
+                }); ctx.Products.Add(new Product
                 {
                     ArtNumber = 1101,
                     CampaignPrice = 1.2m,
@@ -156,7 +154,7 @@ namespace WU18.KingPim.Data.DataAccess
                     StartCampaign = DateTime.Now,
                     StockBalance = 20,
                     SubCategoryId = 2
-                });ctx.Products.Add(new Product
+                }); ctx.Products.Add(new Product
                 {
                     ArtNumber = 1102,
                     CampaignPrice = 1.2m,
@@ -175,7 +173,7 @@ namespace WU18.KingPim.Data.DataAccess
                     StartCampaign = DateTime.Now,
                     StockBalance = 30,
                     SubCategoryId = 2
-                });ctx.Products.Add(new Product
+                }); ctx.Products.Add(new Product
                 {
                     ArtNumber = 2001,
                     CampaignPrice = 1.2m,
@@ -194,7 +192,7 @@ namespace WU18.KingPim.Data.DataAccess
                     StartCampaign = DateTime.Now,
                     StockBalance = 30,
                     SubCategoryId = 3
-                });ctx.Products.Add(new Product
+                }); ctx.Products.Add(new Product
                 {
                     ArtNumber = 2101,
                     CampaignPrice = 1.2m,
@@ -213,7 +211,7 @@ namespace WU18.KingPim.Data.DataAccess
                     StartCampaign = DateTime.Now,
                     StockBalance = 30,
                     SubCategoryId = 4
-                });ctx.Products.Add(new Product
+                }); ctx.Products.Add(new Product
                 {
                     ArtNumber = 3001,
                     CampaignPrice = 1.2m,
@@ -232,7 +230,7 @@ namespace WU18.KingPim.Data.DataAccess
                     StartCampaign = DateTime.Now,
                     StockBalance = 10,
                     SubCategoryId = 5
-                });ctx.Products.Add(new Product
+                }); ctx.Products.Add(new Product
                 {
                     ArtNumber = 3002,
                     CampaignPrice = 1.2m,
@@ -251,7 +249,7 @@ namespace WU18.KingPim.Data.DataAccess
                     StartCampaign = DateTime.Now,
                     StockBalance = 30,
                     SubCategoryId = 5
-                });ctx.Products.Add(new Product
+                }); ctx.Products.Add(new Product
                 {
                     ArtNumber = 3101,
                     CampaignPrice = 1.2m,
@@ -270,7 +268,7 @@ namespace WU18.KingPim.Data.DataAccess
                     StartCampaign = DateTime.Now,
                     StockBalance = 30,
                     SubCategoryId = 6
-                });ctx.Products.Add(new Product
+                }); ctx.Products.Add(new Product
                 {
                     ArtNumber = 4001,
                     CampaignPrice = 1.2m,
@@ -289,7 +287,7 @@ namespace WU18.KingPim.Data.DataAccess
                     StartCampaign = DateTime.Now,
                     StockBalance = 30,
                     SubCategoryId = 7
-                });ctx.Products.Add(new Product
+                }); ctx.Products.Add(new Product
                 {
                     ArtNumber = 4002,
                     CampaignPrice = 1.2m,
@@ -308,7 +306,7 @@ namespace WU18.KingPim.Data.DataAccess
                     StartCampaign = DateTime.Now,
                     StockBalance = 30,
                     SubCategoryId = 7
-                });ctx.Products.Add(new Product
+                }); ctx.Products.Add(new Product
                 {
                     ArtNumber = 4101,
                     CampaignPrice = 1.2m,
@@ -327,7 +325,7 @@ namespace WU18.KingPim.Data.DataAccess
                     StartCampaign = DateTime.Now,
                     StockBalance = 30,
                     SubCategoryId = 8
-                });ctx.Products.Add(new Product
+                }); ctx.Products.Add(new Product
                 {
                     ArtNumber = 5001,
                     CampaignPrice = 1.2m,
@@ -346,7 +344,7 @@ namespace WU18.KingPim.Data.DataAccess
                     StartCampaign = DateTime.Now,
                     StockBalance = 30,
                     SubCategoryId = 9
-                });ctx.Products.Add(new Product
+                }); ctx.Products.Add(new Product
                 {
                     ArtNumber = 5101,
                     CampaignPrice = 1.2m,

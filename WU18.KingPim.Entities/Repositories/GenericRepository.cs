@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 using WU18.KingPim.Data.DataAccess;
 using WU18.KingPim.Data.Models;
 

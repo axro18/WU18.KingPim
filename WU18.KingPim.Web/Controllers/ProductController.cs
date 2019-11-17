@@ -1,9 +1,5 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using WU18.KingPim.Entities.Services.Interfaces;
 using WU18.KingPim.Entities.ViewModels;
 
@@ -32,6 +28,7 @@ namespace WU18.KingPim.Web.Controllers
         [HttpPost]
         public IActionResult EditProduct(ProductViewModel productViewModel)
         {
+            productViewModel.ModifiedBy = User.Identity.Name;
             productViewModel.ModifiedDate = DateTime.Now;
             _productService.EditItem(productViewModel);
             return RedirectToAction("Index", "Home");

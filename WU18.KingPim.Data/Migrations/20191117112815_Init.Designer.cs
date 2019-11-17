@@ -10,8 +10,8 @@ using WU18.KingPim.Data.DataAccess;
 namespace WU18.KingPim.Data.Migrations
 {
     [DbContext(typeof(KingPimContext))]
-    [Migration("20191113135515_db11_Changed_the_Identity_structure")]
-    partial class db11_Changed_the_Identity_structure
+    [Migration("20191117112815_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

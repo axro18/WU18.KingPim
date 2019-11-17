@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WU18.KingPim.Data.DataAccess;
-using WU18.KingPim.Data.Models;
 using WU18.KingPim.Entities.Mappings;
 using WU18.KingPim.Entities.Repositories;
 using WU18.KingPim.Entities.Services.Implementation;
