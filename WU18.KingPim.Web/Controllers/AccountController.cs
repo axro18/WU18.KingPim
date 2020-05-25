@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using WU18.KingPim.Entities.ViewModels;
 
 namespace WU18.KingPim.Web.Controllers
@@ -62,6 +63,11 @@ namespace WU18.KingPim.Web.Controllers
                 if ((await signInManager.PasswordSignInAsync(user, vm.Password, false, false)).Succeeded)
                 {
                     return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+                    return View("Login", vm);
                 }
             }
             return View("Login", vm);

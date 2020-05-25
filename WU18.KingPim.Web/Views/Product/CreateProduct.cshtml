@@ -28,11 +28,11 @@
                             </div>
                             <div class="col-md-4 form-group">
                                 <label asp-for="StockBalance">Stock Balance</label>
-                                <input asp-for="StockBalance" name="StockBalance" class="form-control" type="number" min="0" />
+                                <input asp-for="StockBalance" name="StockBalance" class="form-control" type="number" min="0"/>
                             </div>
                             <div class="col-md-4 form-group">
                                 <label asp-for="PriceExVat">Price excluding VAT</label>
-                                <input asp-for="PriceExVat" name="PriceExVat" class="form-control" type="number" min="0" />
+                                <input asp-for="PriceExVat" name="PriceExVat" class="form-control" type="number" min="0"/>
                             </div>
                             <div class="col-md-2 form-group">
 
@@ -41,34 +41,34 @@
                         <div class="form-row">
                             <div class="col-md-3 form-group">
                                 <label asp-for="PackageWidth">Package Width (mm)</label>
-                                <input asp-for="PackageWidth" name="PackageWidth" class="form-control" type="number" min="0" />
+                                <input asp-for="PackageWidth" name="PackageWidth" class="form-control" type="number" min="0"/>
                             </div>
                             <div class="col-md-3 form-group">
                                 <label asp-for="PackageHeight">Package Height (mm)</label>
-                                <input asp-for="PackageHeight" name="PackageHeight" class="form-control" type="number" min="0" />
+                                <input asp-for="PackageHeight" name="PackageHeight" class="form-control" type="number" min="0"/>
                             </div>
                             <div class="col-md-3 form-group">
                                 <label asp-for="PackageDepth">Package Depth (mm)</label>
-                                <input asp-for="PackageDepth" name="PackageDepth" class="form-control" type="number" min="0" />
+                                <input asp-for="PackageDepth" name="PackageDepth" class="form-control" type="number" min="0"/>
                             </div>
                             <div class="col-md-3 form-group">
                                 <label asp-for="PackageWeight">Package Weight (g)</label>
-                                <input asp-for="PackageWeight" name="PackageWeight" class="form-control" type="number" min="0" />
+                                <input asp-for="PackageWeight" name="PackageWeight" class="form-control" type="number" min="0"/>
                             </div>
                         </div>
                         <div class="form-row">
 
                             <div class="col-md-4 form-group">
                                 <label asp-for="StartCampaign">Start Campaign Date</label>
-                                <input asp-for="StartCampaign" name="StartCampaign" class="form-control" type="date" />
+                                <input asp-for="StartCampaign" name="StartCampaign" class="form-control" type="date"/>
                             </div>
                             <div class="col-md-4 form-group">
                                 <label asp-for="EndCampaign">End Campaign Date</label>
-                                <input asp-for="EndCampaign" name="EndCampaign" class="form-control" type="date" />
+                                <input asp-for="EndCampaign" name="EndCampaign" class="form-control" type="date"/>
                             </div>
                             <div class="col-md-4 form-group">
                                 <label asp-for="CampaignPrice">Campaign Price %</label>
-                                <input asp-for="CampaignPrice" name="CampaignPrice" class="form-control" type="number" min="0" />
+                                <input asp-for="CampaignPrice" name="CampaignPrice" class="form-control" type="number" min="0"/>
                             </div>
 
                         </div>
@@ -76,14 +76,14 @@
                             <div class="col-md-2 form-group"></div>
                             <div class="custom-control custom-switch">
                                 <div class="col-md-4 form-group">
-                                    <input asp-for="Publish" name="Publish" type="checkbox" class="custom-control-input" id="customSwitch1" />
+                                    <input asp-for="Publish" name="Publish" type="checkbox" class="custom-control-input" id="customSwitch1"/>
                                     <label asp-for="Publish" class="custom-control-label" for="customSwitch1">Publish</label>
                                 </div>
                             </div>
                             <div class="form-group col-md-4"></div>
                             <div class="custom-control custom-switch">
                                 <div class="col-md-4 form-group">
-                                    <input asp-for="Discontinued" name="Discontinued" type="checkbox" class="custom-control-input" id="customSwitch2" />
+                                    <input asp-for="Discontinued" name="Discontinued" type="checkbox" class="custom-control-input" id="customSwitch2"/>
                                     <label asp-for="Discontinued" class="custom-control-label" for="customSwitch2">Discontinued</label>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label asp-for="SubCategory">SubCategory</label>
-                                @await Component.InvokeAsync("SubCategoryDropDown", new { selectedSubCategoryId = Model.SubCategoryId })
+                                @await Component.InvokeAsync("SubCategoryDropDown", new {selectedSubCategoryId = Model.SubCategoryId})
                             </div>
                         </div>
                         <div class="form-row">

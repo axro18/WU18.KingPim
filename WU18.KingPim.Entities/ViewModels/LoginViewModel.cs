@@ -5,7 +5,7 @@ namespace WU18.KingPim.Entities.ViewModels
     public class LoginViewModel
     {
         [Required]
-        [EmailAddress]
+        [DataType(DataType.EmailAddress)]
         public string UserName { get; set; }
         [Required]
         [DataType(DataType.Password)]
